@@ -10,15 +10,15 @@ public class Lottery {
         char[] test = a.toCharArray();
         int[] num = new int[3];
 
-        for(int i = 0; i < test.length; i++) {
+        for (int i = 0; i < test.length; i++) {
             num[i] = (test[i] - '0');
         }
 
         Random rand = new Random();
         int[] lottery = new int[3];
-        for(int i = 0; i < 3; i++){
+        for (int i = 0; i < 3; i++) {
             lottery[i] = rand.nextInt(10);
-            if(lottery[i] == num[i]){
+            if (lottery[i] == num[i]) {
                 cnt++;
             }
         }
