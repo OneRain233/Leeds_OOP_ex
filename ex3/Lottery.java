@@ -4,37 +4,26 @@ import java.util.Random;
 public class Lottery {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int[] numbers = new int[3];
-        int ii = 2;
-        System.out.print("Enter your numbers: ");
-        int tmp = input.nextInt();
-        if (tmp < 100) {
-            System.out.println("Error: number must be between 100 and 999");
-            System.exit(1);
-        }
+        int cnt = 0;
 
-        while (tmp != 0) {
-            int a = tmp / 10;
-            int b = tmp % 10;
-            numbers[ii] = b;
-            tmp = a;
-            ii--;
+        String a = input.next();
+        char[] test = a.toCharArray();
+        int[] num = new int[3];
+
+        for(int i = 0; i < test.length; i++) {
+            num[i] = (test[i] - '0');
         }
 
         Random rand = new Random();
         int[] lottery = new int[3];
-        for (int i = 0; i < 3; i++) {
+        for(int i = 0; i < 3; i++){
             lottery[i] = rand.nextInt(10);
-        }
-
-        System.out.println("Lottery numbers: " + lottery[0] + " " + lottery[1] + " " + lottery[2]);
-
-        int cnt = 0;
-        for (int i = 0; i < 3; i++) {
-            if (numbers[i] == lottery[i]) {
+            if(lottery[i] == num[i]){
                 cnt++;
             }
         }
+
+        System.out.println("lottery:" + " " + lottery[0] + " " + lottery[1] + " " + lottery[2]);
 
         if (cnt == 3) {
             System.out.println("You win a $10,000 prize!");
